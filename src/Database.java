@@ -11,7 +11,7 @@ public class Database {
     public static void addClient(Client c) throws Exception{
         try{
             Connection con = getConnection();
-            String command = "INSERT INTO `petclinic`.`client` (`Name`, `Contact #`) VALUES ('" + c.getName() + "', '" + c.getContact() + "');";
+            String command = "INSERT INTO `mork_petclinic`.`client` (`Name`, `Contact #`) VALUES ('" + c.getName() + "', '" + c.getContact() + "');";
             PreparedStatement add = con.prepareStatement(command);
             add.executeUpdate();
         }
@@ -23,8 +23,8 @@ public class Database {
     public static Connection getConnection() throws Exception{
         try{
             String driver = "com.mysql.cj.jdbc.Driver";
-            String url = "jdbc:mysql://192.168.0.25:3306/petclinic";
-            String username = "remote-access";
+            String url = "jdbc:mysql://mork.heliohost.us:3306/mork_petclinic";
+            String username = "mork_remote";
             String password = "remote";
             Class.forName(driver);
             
